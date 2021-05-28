@@ -20,22 +20,22 @@ const totalFaces = 89820;
 
 const ext = ".png";
 const partFolder = "./face_parts";
-// const partTypes = [
-//   { name: "face/face",   count: 3,  offset: {x:    0, y: 0}, attrNames: ["", "", ""], attrSex: ["u", "u","u"], required: true },
-//   { name: "mouth/m",     count: 7,  offset: {x: -560, y: 0}, attrNames: ["Black Lipstick", "Red Lipstick", "Smile", "", "Teeth Smile", "Purple Lipstick","new"], attrSex: ["f", "f", "u", "u", "m", "f","m"], required: true },
-//   { name: "nose/n",      count: 3,  offset: {x: -560, y: 0}, attrNames: ["", "Nose Ring","newnose"], attrSex: ["u", "u","m"], required: true },
-//   { name: "eyes/eyes",   count: 6,  offset: {x: -560, y: 0}, attrNames: ["", "Asian Eyes", "Sun Glasses", "Red Glasses", "Round Eyes","neweyes"], attrSex: ["u", "u", "u", "u", "u","m"], required: true },
-//   { name: "ears/ears",   count: 5,  offset: {x: -560, y: 0}, attrNames: ["", "Left Earring", "Right Earring", "Two Earrings","newears"], attrSex: ["u", "u", "u", "u","m"], required: true },
-//   { name: "beard/beard", count: 8,  offset: {x: -560, y: 0}, attrNames: ["Brown Beard", "", "Mustache-Beard", "", "Mustache", "", "Regular Beard", ""], attrSex: ["m", "u", "m", "u", "m", "u", "m", "u"], required: false },
-//   { name: "hair/hair",   count: 13, offset: {x: -560, y: 0}, attrNames: ["Up Hair", "Down Hair", "Mahawk", "Red Mahawk", "Orange Hair", "Bubble Hair", "Emo Hair", "Thin Hair", "Bald", "Blonde Hair", "Caret Hair", "Pony Tails","newhairs"], attrSex: ["m", "u", "u", "u", "u", "m", "u", "m", "m", "f", "f", "f","m"], required: true },
-//   { name: "access/acc",  count: 2,  offset: {x: -560, y: 0}, attrNames: ["Cigar", "Pipe"], attrSex: ["u", "u"], required: false },
-// ];
 const partTypes = [
-  { name: "face/face",   count: 2,  offset: {x:    0, y: 0}, attrNames: ["", ""], attrSex: ["f", "m"], required: true },
-  { name: "mouth/m",     count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true },
-  { name: "nose/n",      count: 1,  offset: {x: -560, y: 0}, attrNames: [""], attrSex: ["f"], required: false },
-  { name: "eyes/eyes",   count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true },
-  { name: "ears/ears",   count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true }];
+  { name: "face/face",   count: 6,  offset: {x:    0, y: 0}, attrNames: ["", "", "","","",""], attrSex: ["u", "u","u","u","u","u"], required: true },
+  { name: "mouth/mouth",     count: 6,  offset: {x: -560, y: 0}, attrNames: ["Black Lipstick", "Red Lipstick", "Smile", "", "Teeth Smile", "Purple Lipstick"], attrSex: ["u", "u", "u", "u", "u", "u"], required: true },
+  { name: "nose/n",      count: 2,  offset: {x: -560, y: 0}, attrNames: ["", "Nose Ring"], attrSex: ["u", "u"], required: true },
+  { name: "eyes/eyes",   count: 6,  offset: {x: -560, y: 0}, attrNames: ["", "Asian Eyes", "Sun Glasses", "Red Glasses", "Round Eyes","neweyes"], attrSex: ["u", "u", "u", "u", "u","u"], required: true },
+  { name: "ears/ears",   count: 4,  offset: {x: -560, y: 0}, attrNames: ["", "Left Earring", "Right Earring", "Two Earrings"], attrSex: ["u", "u", "u", "u"], required: true },
+  { name: "beard/beard", count: 3,  offset: {x: -560, y: 0}, attrNames: ["Brown Beard", "", "Mustache-Beard"], attrSex: [ "u", "u","u"], required: false },
+  { name: "hair/hair",   count: 6, offset: {x: -560, y: 0}, attrNames: ["Up Hair", "Down Hair", "Mahawk", "Red Mahawk", "Orange Hair", "Bubble Hair"], attrSex: ["u", "u", "u", "u", "u", "u",], required: true },
+  { name: "access/acc",  count: 2,  offset: {x: -560, y: 0}, attrNames: ["Cigar", "Pipe"], attrSex: ["u", "u"], required: false },
+];
+// const partTypes = [
+//   { name: "face/face",   count: 2,  offset: {x:    0, y: 0}, attrNames: ["", ""], attrSex: ["f", "m"], required: true },
+//   { name: "mouth/m",     count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true },
+//   { name: "nose/n",      count: 1,  offset: {x: -560, y: 0}, attrNames: [""], attrSex: ["f"], required: false },
+//   { name: "eyes/eyes",   count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true },
+//   { name: "ears/ears",   count: 2,  offset: {x: -560, y: 0}, attrNames: ["", ""], attrSex: ["u", "u"], required: true }];
 
 
 
@@ -229,7 +229,7 @@ async function generateFaces() {
     // const r = 0;
     if ((r <= desiredCount/totalFaces) && (gender != "Invalid") && (valid)) {
       // Generate and save current face
-      await saveFaceByCode(codeArr, `${outputFolder}/image${getRandomInt(1000)}${ext}`);
+      await saveFaceByCode(codeArr, `${outputFolder}/image${getRandomInt(100000)}${ext}`);
 
       // Add character with accessories
       c = {
