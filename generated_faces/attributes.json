@@ -1,0 +1,3 @@
+const attributes = ["Black Lipstick","Red Lipstick","Smile","Teeth Smile","Purple Lipstick","new","Nose Ring","newnose","Asian Eyes","Sun Glasses","Red Glasses","Round Eyes","neweyes","Left Earring","Right Earring","Two Earrings","newears","Brown Beard","Mustache-Beard","Mustache","Regular Beard","Up Hair","Down Hair","Mahawk","Red Mahawk","Orange Hair","Bubble Hair","Emo Hair","Thin Hair","Bald","Blonde Hair","Caret Hair","Pony Tails","newhairs","Cigar","Pipe"];
+
+module.exports.attributes = attributes;
